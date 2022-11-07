@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Deatils</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <style>
+        .gradient{
+            background: #133ad8; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to top, #133ad8, #1beb00); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to top, #133ad8, #1beb00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .vr{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark navbar-expand-lg mb-3 bg-dark shadow small">
+    <div class="container-fluid">
+        <a href="dash.html" class="navbar-brand">
+            <span class="gradient">EMS2.0</span>
+        </a>
+        <button
+            type="button"
+            class="navbar-toggler border-0"
+            data-bs-toggle="collapse"
+            data-bs-target="#nav_links"
+            aria-controls="nav_links"
+            aria-expanded="false"
+            aria-label="Toggle Navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav_links">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a href="dash.html" class="nav-link active" aria-current="page">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="employees-list.html" class="nav-link">Employees</a>
+                </li>
+                <li class="nav-item">
+                    <a href="job-list.html" class="nav-link">Jobs</a>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <div class="hstack gap-3">
+                    <input type="search" placeholder="Search here.." class="form-control form.control-sm rounded rounded-pill">
+                <button class="btn btn-sm btn-success">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                </button>
+                <div class="vr"></div>
+                <a href="index.html" class="btn btn-sm btn-warning">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
+                        <path d="M7.5 1v7h1V1h-1z"/>
+                        <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"/>
+                    </svg>
+                </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</nav>
+<!-- Navbar -->
+
+<!-- Emloyees data -->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-2">
+            <div class="list-group shadow-sm mb-3">
+                <div class="list-group-item active">Employees Data</div>
+                <a 
+                    href="#add_employee"
+                    class="list-group-item list-group-item-action"
+                    data-bs-toggle="modal">
+                    Add Employee
+                </a>
+                <a href="employees-list.html" class="list-group-item list-group-item-action">View Employees</a>
+            </div>
+            <div class="list-group shadow-sm mb-3">
+                <div class="list-group-item active">Related Links</div>
+                <a href="job-list.html" class="list-group-item list-group-item-action">Jobs List</a>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="card shadow-sm border-0">
+                <div class="card-header text-bg-dark text-center">Employees List</div>
+                <table class="table small table-bordered small align-middle mb-0">
+                    <tr class="table-secondary">
+                        <th>ID</th>
+                        <th>Employee ID</th>
+                        <th>Name</th>
+                        <th>Email ID</th>
+                        <th>Details</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>741</td>
+                        <td>John Doe</td>
+                        <td>johndoe@gmail.com</td>
+                        <td>
+                            <div class="d-grid">
+                                <button 
+                                    type="button"
+                                    class="btn btn-primary"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#employee_details">
+                                    Details
+                                </button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-grid">
+                                <button 
+                                    type="button"
+                                    class="btn btn-warning"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#employee_edit">
+                                    Edit
+                                </button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-grid">
+                                <button 
+                                    type="button"
+                                    class="btn btn-danger"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#employee_delete">
+                                    Delete
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>742</td>
+                        <td>Smith</td>
+                        <td>smith@gmail.com</td>
+                        <td>
+                            <div class="d-grid">
+                                <button 
+                                    type="button"
+                                    class="btn btn-primary"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#employee_details">
+                                    Details
+                                </button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-grid">
+                                <button 
+                                    type="button"
+                                    class="btn btn-warning"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#employee_edit">
+                                    Edit
+                                </button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-grid">
+                                <button 
+                                    type="button"
+                                    class="btn btn-danger"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#employee_delete">
+                                    Delete
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>743</td>
+                        <td>George</td>
+                        <td>George@gmail.com</td>
+                        <td>
+                            <div class="d-grid">
+                                <button 
+                                    type="button"
+                                    class="btn btn-primary"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#employee_details">
+                                    Details
+                                </button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-grid">
+                                <button 
+                                    type="button"
+                                    class="btn btn-warning"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#employee_edit">
+                                    Edit
+                                </button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-grid">
+                                <button 
+                                    type="button"
+                                    class="btn btn-danger"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#employee_delete">
+                                    Delete
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>744</td>
+                        <td>Marquee</td>
+                        <td>marquee@gmail.com</td>
+                        <td>
+                            <div class="d-grid">
+                                <button 
+                                    type="button"
+                                    class="btn btn-primary"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#employee_details">
+                                    Details
+                                </button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-grid">
+                                <button 
+                                    type="button"
+                                    class="btn btn-warning"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#employee_edit">
+                                    Edit
+                                </button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-grid">
+                                <button 
+                                    type="button"
+                                    class="btn btn-danger"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#employee_delete">
+                                    Delete
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Emloyees data -->
+
+<!-- Add Employee Modal -->
+<div 
+    class="modal fade"
+    id="add_employee"
+    tabindex="-1"
+    aria-hidden="true"
+    data-bs-backdrop="static"
+    style="backdrop-filter: blur(5px);">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header text-bg-dark">
+                <h5 class="modal-title">Add Employee</h5>
+                <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="modal"
+                    aria-label="close">
+                </button>
+            </div>
+            <div class="modal-body">
+               <form>
+                    <div class="container">
+                        <div class="row gx-3">
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <input type="date" class="form-control form-control-sm">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control form-control-sm" placeholder="First Name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control form-control-sm" placeholder="Last Name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <input type="mail" class="form-control form-control-sm" placeholder="Email ID">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <input type="tel" class="form-control form-control-sm" placeholder="Phone">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <select class="form-select form-select-sm">
+                                        <option selected>Employee Job Role</option>
+                                        <option value="Graphic Designer">Graphic Designer</option>
+                                        <option value="Web Designer">Web Designer</option>
+                                        <option value="Web Developer">Web Developer</option>
+                                        <option value="Digital Marketing">Digital Marketing</option>
+                                        <option value="Others">Others</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="d-grid">
+                                    <button
+                                        type="submit"
+                                        class="btn btn-sm btn-success">
+                                        Add Employee
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="d-grid">
+                                    <button
+                                        type="button"
+                                        class="btn btn-sm btn-warning"
+                                        data-bs-dismiss="modal">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+               </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Add Employee Modal -->
+
+<!-- Employee Deatils Modal -->
+<div 
+    class="modal fade"
+    id="employee_details"
+    tabindex="-1"
+    data-bs-backdrop="static"
+    aria-hidden="true"
+    style="backdrop-filter: blur(5px);">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header text-bg-dark">
+                <h5 class="modal-title">Employee Details</h5>
+                <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="modal"
+                    aria-label="close">
+                </button>
+            </div>
+            <div class="modal-body p-0">
+                <table class="table table-bordered small mb-0">
+                    <tr>
+                        <th class="w-50">ID</th>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <th>Employee ID</th>
+                        <td>741</td>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td>John Doe</td>
+                    </tr>
+                    <tr>
+                        <th>Email ID</th>
+                        <td>johndoe@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <th>Phone</th>
+                        <td>74189636985</td>
+                    </tr>
+                    <tr>
+                        <th>Joining Date</th>
+                        <td>05-09-2022</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <a 
+                    href="#employee_edit"
+                    data-bs-toggle="modal"
+                    class="btn btn-sm btn-primary">
+                    Edit Details
+                </a>
+                <a 
+                    href="#"
+                    class="btn btn-sm btn-warning"
+                    data-bs-dismiss="modal">
+                    Close
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Employee Deatils Modal -->
+
+<!-- Edit Employee Modal -->
+<div 
+    class="modal fade"
+    id="employee_edit"
+    tabindex="-1"
+    aria-hidden="true"
+    data-bs-backdrop="static"
+    style="backdrop-filter: blur(5px);">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header text-bg-dark">
+                <h5 class="modal-title">Edit Employee Details</h5>
+                <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="modal"
+                    aria-label="close">
+                </button>
+            </div>
+            <div class="modal-body">
+               <form>
+                    <div class="container">
+                        <div class="row gx-3">
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <input type="date" class="form-control form-control-sm">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control form-control-sm" placeholder="First Name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control form-control-sm" placeholder="Last Name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <input type="mail" class="form-control form-control-sm" placeholder="Email ID">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <input type="tel" class="form-control form-control-sm" placeholder="Phone">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <select class="form-select form-select-sm">
+                                        <option selected>Employee Job Role</option>
+                                        <option value="Graphic Designer">Graphic Designer</option>
+                                        <option value="Web Designer">Web Designer</option>
+                                        <option value="Web Developer">Web Developer</option>
+                                        <option value="Digital Marketing">Digital Marketing</option>
+                                        <option value="Others">Others</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="d-grid">
+                                    <button
+                                        type="submit"
+                                        class="btn btn-sm btn-success">
+                                        Update Employee
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="d-grid">
+                                    <button
+                                        type="button"
+                                        class="btn btn-sm btn-warning"
+                                        data-bs-dismiss="modal">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+               </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Edit Employee Modal -->
+
+<!-- Employee Delete Modal -->
+<div 
+    class="modal fade"
+    id="employee_delete"
+    tabindex="-1"
+    data-bs-backdrop="static"
+    aria-hidden="true"
+    style="backdrop-filter: blur(5px);">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body p-0">
+                <div class="alert d-flex mb-0">
+                    <h4>Do you want to delete <strong><q>John Doe</q></strong> ?</h4>
+                    <button
+                        type="button"
+                        class="btn-close ms-auto"
+                        data-bs-dismiss="modal">
+                    </button>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button 
+                    type="submit"
+                    class="btn btn-sm btn-danger">
+                    Yes!
+                </button>
+                <button 
+                    type="button"
+                    class="btn btn-sm btn-warning"
+                    data-bs-dismiss="modal">
+                    Nope, Go Back
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Employee Delete Modal -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
